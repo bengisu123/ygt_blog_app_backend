@@ -1,0 +1,209 @@
+/*
+  Shared modern UI styles for Cypress test right panel
+  Themes: blue neon, purple glass, green matrix
+*/
+
+/* CSS Reset (scoped minimal) */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Base tokens */
+:root {
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.15);
+  --shadow-md: 0 12px 30px rgba(0,0,0,.22);
+  --glass-bg: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.15);
+  --text-strong: #f7f7fb;
+  --text-soft: #cfd3e1;
+  --muted: #9aa3b2;
+}
+
+/* Layout */
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text-strong);
+  background: #0b0f1a;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min(960px, 92%);
+  margin: 24px auto;
+}
+
+/* Card */
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 18px 20px;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Typography */
+h1, h2, h3 {
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+h1 span.accent { opacity: .9 }
+p { color: var(--text-soft) }
+small { color: var(--muted) }
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+thead th {
+  text-align: left;
+  padding: 12px 14px;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+tbody td {
+  padding: 12px 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-soft);
+}
+tbody tr:hover td {
+  background: rgba(255,255,255,0.035);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-strong);
+  padding: 10px 14px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm) }
+.btn:active { transform: translateY(0) scale(.99) }
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  margin: 14px 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0 8px 0;
+}
+
+/* Subtle scroll styling */
+::-webkit-scrollbar { width: 10px; height: 10px }
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.14);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track { background: transparent }
+
+/* Cursor Prompt */
+.cursor-prompt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -140%);
+  pointer-events: none;
+  z-index: 9999;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 999px;
+  background: rgba(12,12,18,0.55);
+  color: #e7ebff;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,0.06);
+  white-space: nowrap;
+  will-change: transform;
+}
+.cursor-prompt .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 12px currentColor;
+}
+
+/* Themes */
+
+/* Blue Neon (test1) */
+.theme-blue-neon {
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(0, 208, 255, 0.18), transparent 60%),
+    radial-gradient(800px 500px at 110% 10%, rgba(0, 132, 255, 0.15), transparent 60%),
+    #0a0f1c;
+}
+.theme-blue-neon .accent { color: #56ccff }
+.theme-blue-neon .btn { border-color: rgba(86,204,255,.35) }
+.theme-blue-neon .cursor-prompt { color: #bfe9ff }
+.theme-blue-neon .cursor-prompt .dot { background: #56ccff }
+thead.theme-blue-neon th { background: linear-gradient(90deg, rgba(86,204,255,.18), transparent) }
+
+/* Purple Glass (test2) */
+.theme-purple-glass {
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(220, 110, 255, 0.14), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(150, 70, 255, 0.12), transparent 60%),
+    #0d0a13;
+}
+.theme-purple-glass .accent { color: #c98cff }
+.theme-purple-glass .btn { border-color: rgba(201,140,255,.35) }
+.theme-purple-glass .cursor-prompt { color: #efd9ff }
+.theme-purple-glass .cursor-prompt .dot { background: #c98cff }
+thead.theme-purple-glass th { background: linear-gradient(90deg, rgba(201,140,255,.18), transparent) }
+
+/* Green Matrix (test3) */
+.theme-green-matrix {
+  background:
+    radial-gradient(1200px 600px at -10% 0%, rgba(70, 255, 140, 0.14), transparent 60%),
+    radial-gradient(800px 600px at 110% -10%, rgba(20, 255, 140, 0.12), transparent 60%),
+    #07140d;
+}
+.theme-green-matrix .accent { color: #6bff9b }
+.theme-green-matrix .btn { border-color: rgba(107,255,155,.35) }
+.theme-green-matrix .cursor-prompt { color: #d5ffe3 }
+.theme-green-matrix .cursor-prompt .dot { background: #6bff9b }
+thead.theme-green-matrix th { background: linear-gradient(90deg, rgba(107,255,155,.18), transparent) }
+
+/* Utility */
+.grid {
+  display: grid;
+  gap: 14px;
+}
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+.muted { color: var(--muted) }
+
+

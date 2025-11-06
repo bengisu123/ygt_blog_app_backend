@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Genel Test Görselleştirme</title>
+  <style>
+    body { background:#0d1b2a; color:#e0e1dd; font-family:'Poppins',sans-serif; }
+    .card { width: 750px; margin: 80px auto; background:#1b263b; border-radius:16px; padding:30px; box-shadow:0 5px 25px rgba(0,0,0,.5); }
+    h1 { text-align:center; color:#00b4d8; }
+    .result { margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .item { background:#415a77; padding:15px; border-radius:10px; text-align:center; }
+    .item.pass { background:#2a9d8f; }
+    .item.fail { background:#e76f51; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>⚙️ Genel Cypress Testleri</h1>
+    <div class="result">
+      <div class="item pass">Veritabanı bağlantısı OK</div>
+      <div class="item pass">Seed verisi yüklendi</div>
+      <div class="item pass">Kullanıcı oturumu aktif</div>
+      <div class="item fail">API /comments testinde gecikme (retry)</div>
+    </div>
+  </div>
+</body>
+</html>
+
