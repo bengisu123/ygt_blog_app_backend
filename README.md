@@ -19,8 +19,3 @@ rails s
 
 İzin verilen CORS originleri: `http://localhost:3000`, `http://localhost:3001`.
 
-Seed kullanıcı bilgisi:
-
-- name: `Nisanur Akgül`
-- email: `nisanurakgull123@gmail.com`
-- password: `123456`
